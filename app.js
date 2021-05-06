@@ -62,7 +62,9 @@ const apiError = (error) => {
     
     setTimeout(function(){
 
-        document.getElementById('show-alert').remove()
+        let toggle = document.getElementById('show-alert')
+        toggle.id = 'hide-alert';
+        toggle.innerHTML = '';
     }, 
     3000);
 
