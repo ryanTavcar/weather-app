@@ -33,3 +33,11 @@ nav {
   background: #ffaa55;
   color: white;
 }
+
+.card {
+  width: 30vw;
+  height: 40vh;
+  border: 2px solid black;
+  background-color: white;
+  text-align: center;
+}
