@@ -1,54 +1,96 @@
 body {
-    background: url('weather-img.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+  font-family: "Open Sans Condensed", sans-serif;
+  background: url("weather-img.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
+main {
+  width: 80%;
+  margin: auto;
+}
+
+p {
+  margin: 0;
+}
 
 nav {
-    color: white;
-    z-index: 2;
+  background-color: #333333;
+  opacity: 0.6;
+  color: white;
 }
 
 #weather-container {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 #button {
-    display: inline-block;
-    padding: 0.3em 1em;
-    text-decoration: none;
-    color: #ffaa55;
-    border: solid 2px c;
-    border-radius: 3px;
-    transition: 0.4s;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #ffaa55;
+  border: solid 2px c;
+  border-radius: 3px;
+  transition: 0.4s;
 }
 
 #button:hover {
-    background: #ffaa55;
-    color: white;
+  background: #ffaa55;
+  color: white;
 }
 
 .card {
-    width: 280px;
-    height: auto;
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 5%;
-    margin: 20px;
-    text-align: center;
-
+  width: auto;
+  height: auto;
+  background-color: #66cdaa;
+  border-radius: 5%;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
 }
+
 #icon {
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    width: 15vw;
-    height: 15vh;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: 10vw;
+  float: left;
 }
 
+h2 {
+  color: #ffffff;
+  border-top: solid 3px #ffffff;
+  text-align: left;
+  padding-top: 10px;
+}
+
+.maxtemp {
+  font-size: 40px;
+  text-align: left;
+}
+
+.card-current-temp {
+  color: #ffffff;
+  font-size: 30px;
+}
+
+small {
+  text-align: left;
+}
+
+.card-temp {
+  text-align: left;
+  float: left;
+}
+
+.card-description {
+  float: right;
+  font-size: 20px;
+  text-align: right;
+  width: 50%;
+  vertical-align: text-bottom;
+}
 
 
 #show-alert {

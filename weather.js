@@ -14,16 +14,20 @@ export class Weather {
         newDiv.innerHTML = 
         `
         <div class='card'>
-            <h2 class='header'>${cityName}</h2>
-            <img id='icon' src=${iconURL} alt='weather icon'>
-            <p class='card-current-temp'><strong>Current Temp:</strong> ${currentTemp}</p>
-            <p class='card-description'><strong>Description:</strong> ${description}</p>
-            <p class='card-max-temp'><strong>Max Temp:</strong> ${maxTemp}</p>
-            <p class='card-min-temp'><strong>Min Temp:</strong> ${minTemp}</p>
+            <p class='card-current-temp'>${currentTemp}°</p>
             <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
+
+            <img id='icon' src=${iconURL} alt='weather icon'>
+
+            <div class="temp">
+            <p class='card-temp'><span class="maxtemp">${maxTemp}°</span>/${minTemp}°</p>
+            <p class='card-description'>${description}</p>
+            </div>
+
+            <h2 class='header'>${cityName}</h2>
             <p class='card-humidity'><strong>Humidity:</strong> ${humidity}</p>
             <p class='card-windspeed'><strong>Windspeed:</strong> ${windspeed}</p>
-        </div`
+        </div>`
     
         const section = document.getElementById('weather-container');
         section.appendChild(newDiv);
