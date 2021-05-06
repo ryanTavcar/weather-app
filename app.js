@@ -1,35 +1,48 @@
+//const Weather = require('weather.js')
 
-
+const form = document.getElementById('form');
 const APIkey    = 'f18b6ae1c57f039f48f95ade89757557';
 
+let weatherObject ={}
 
 const getData = async () => {
-
-    const cityName = inputValue();
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`);
-    const data = await response.json();
-    
-    return data
+    try {
+        const cityName = inputValue();
+        const unit = 'metric'
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unit}&appid=${APIkey}`);
+        const data = await response.json();
+        return data
+    } catch (err) {
+        throw new Error(console.error(err.message))
+    }
 }
 
 const inputValue = () => {
     const cityName = document.getElementById('input').value;
     return cityName
 }
-inputValue();
 
-document.getElementById('form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    getData()
-    .then(data => console.log(data))
-    .then(weather)
-    .catch(error => console.log(error))
-
-})
-
-function weather (data) {
-    const{main,weather} = data;
-    const currentTemp = main.temp
-    console.log(currentTemp);
+const apiError = (error) => {
+    console.error(error);
 }
 
+const displayData = (data) => {
+    const {main} = data;
+    weatherObject = {
+        currentTemp: main.temp
+    }
+    return
+}
+
+const formHandler = (event) => {
+    event.preventDefault();
+    getData().then (data => console.log(data))
+    .then(displayData).catch(apiError)
+    
+
+}
+
+const createCard = () => {
+    console.log(weatherObject.currentTemp)
+    //const weather = new Weather()
+}
