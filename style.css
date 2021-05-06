@@ -45,11 +45,10 @@ nav {
 }
 
 .card {
-    width: auto;
+    width: 280px;
     height: auto;
     background-color: white;
     border: 2px solid black;
-
     border-radius: 5%;
     margin: 20px;
     text-align: center;
@@ -63,10 +62,14 @@ nav {
     height: 15vh;
 }
 
-.nav-item .dropdown {
+.dropdown-menu.show {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 5rem;
     height: auto;
+    background-color: transparent;
+    border: none;
 }
 
 .dropdown-item {
@@ -93,4 +96,7 @@ nav {
 }
 #dropdown-item6 {
     background-color: rgb(75,0,130);
+}
+#dropdown-item7 {
+    background-color: rgb(39,39,39);
 }
