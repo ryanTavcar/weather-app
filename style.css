@@ -1,21 +1,10 @@
 body {
+    background: url('weather-img.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
-#background-img {
-    overflow: hidden;
-    position: relative;
-}
-
-.demo-bg {
-    opacity: 0.6;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: auto;
-    z-index: 1;
-}
 
 nav {
  
