@@ -3,8 +3,10 @@
 const form = document.getElementById('form');
 
 
+const form = document.getElementById('form');
 const APIkey    = 'f18b6ae1c57f039f48f95ade89757557';
 
+let weatherObject ={}
 
 const weatherObject = {}
 
@@ -48,6 +50,9 @@ const asssembleData = async (getData) => {
     //const weather = new Weather()
 }
 
+}
 
-form.addEventListener('submit', formHandler )
-
+const createCard = () => {
+    console.log(weatherObject.currentTemp)
+    //const weather = new Weather()
+}
