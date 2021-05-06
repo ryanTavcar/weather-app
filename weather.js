@@ -31,7 +31,7 @@ export class Weather {
     
         const section = document.getElementById('weather-container');
         section.appendChild(newDiv);
-
+        console.log(this)
         
         return;
     }
