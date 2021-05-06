@@ -1,18 +1,43 @@
 body {
-    background-color: blanchedalmond;
+  background-color: #3b5998;
+}
+
+nav {
+  background-color: #3b5998;
+  color: white;
 }
 
 #weather-container {
-    width: 100vw;
-    height: 50vh;
-    border: 1px solid red;
-    flex-direction: row;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.weather-card {
-    width: 30vw;
-    height: 40vh;
-    border: 1px solid black;
-    background-color: white;
-    text-align: center;
+.card {
+  background-color: white;
+  border: 1px solid blue;
+  margin: 20px;
+}
+
+#button {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #ffaa55;
+  border: solid 2px c;
+  border-radius: 3px;
+  transition: 0.4s;
+}
+
+#button:hover {
+  background: #ffaa55;
+  color: white;
+}
+
+.card {
+  width: 30vw;
+  height: 40vh;
+  border: 2px solid black;
+  background-color: white;
+  text-align: center;
 }

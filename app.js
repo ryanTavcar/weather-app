@@ -1,5 +1,12 @@
 //const {Weather} = require('./weather');
 
+
+const APIkey = 'f18b6ae1c57f039f48f95ade89757557';
+
+const weatherObject = {}
+
+const form = document.getElementById('form');
+let unit = undefined;
 function Weather(weatherobject) {
     this.id = 0
     this.weather = weatherobject;
@@ -7,8 +14,9 @@ function Weather(weatherobject) {
 }
 
 Weather.prototype.displayWeather = (weatherObject) => {
-    const {cityName, currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed, description,icon } = weatherObject;
-    //document.getElementsByClassName('weather-card')[0].innerHTML =
+    const {cityName, currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed, description, icon} = weatherObject;
+    
+    const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
     let item = 8;
     const newDiv = document.createElement("div");
     newDiv.class = 'weather-card'
@@ -17,6 +25,7 @@ Weather.prototype.displayWeather = (weatherObject) => {
         `
         <div class='card'>
             <h2 class='header'>${cityName}</h2>
+            <img id='icon' src=${iconURL} alt='weather icon'>
             <p class='card-current-temp'><strong>Current Temp:</strong> ${currentTemp}</p>
             <p class='card-description'><strong>Description:</strong> ${description}</p>
             <img src=
@@ -32,12 +41,6 @@ Weather.prototype.displayWeather = (weatherObject) => {
     }
 
 }
-
-
-const form = document.getElementById('form');
-const APIkey = 'f18b6ae1c57f039f48f95ade89757557';
-
-const weatherObject = {}
 
 
 const getData = async () => {
@@ -73,6 +76,14 @@ const formHandler = (event) => {
 
 }
 
+const formHandler2 = (event) => {
+    event.preventDefault();
+    getData().then(getWeather).catch(apiError);
+}
+
+form.addEventListener('submit', formHandler)
+
+
 const asssembleData = async (getData) => {
     const {main,wind,weather,name} = await getData();
     weatherObject.cityName    = name;
@@ -84,10 +95,33 @@ const asssembleData = async (getData) => {
     weatherObject.icon        = weather[0].icon;
     weatherObject.windspeed   = wind.speed;
     weatherObject.description = weather[0].description;
+    weatherObject.icon        = weather[0].icon;
 
     return weatherObject
 }
 
+const createCard = () => {
+    console.log(weatherObject.currentTemp)
+    //const weather = new Weather()
+}
+
+document.getElementById("metric-button").onclick = function() {
+    //  unit = "metric"
+  };
+
+document.getElementById("imperial-button").onclick = function() {
+    // show imperial
+  };
+
+// // get Data (description)
+// const getWeather = (data) => {
+//     let descriptionDiv = document.getElementById("description")
+//     let description = data.weather[0].description; 
+//      console.log(description)
+//        descriptionDiv.innerText = description 
+// }
+
+// form.addEventListener('submit', formHandler2)
 const createWeatherObject =  async () => {
     //const weatherObject = await weatherObject
     const weather =  new Weather()
