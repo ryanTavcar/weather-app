@@ -1,5 +1,10 @@
 //const {Weather} = require('./weather');
 
+
+const APIkey = 'f18b6ae1c57f039f48f95ade89757557';
+
+const weatherObject = {}
+
 const form = document.getElementById('form');
 let unit = undefined;
 function Weather(weatherobject) {
@@ -37,13 +42,6 @@ Weather.prototype.displayWeather = (weatherObject) => {
     }
 
 }
-
-
-
-const form = document.getElementById('form');
-const APIkey = 'f18b6ae1c57f039f48f95ade89757557';
-
-const weatherObject = {}
 
 
 const getData = async () => {
