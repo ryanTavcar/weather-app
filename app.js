@@ -1,6 +1,7 @@
 //const Weather = require('weather.js')
 
 const form = document.getElementById('form');
+let unit = undefined;
 
 
 const form = document.getElementById('form');
@@ -48,16 +49,6 @@ const formHandler2 = (event) => {
     getData().then(getWeather).catch(apiError);
 }
 
-// get Data (description)
-const getWeather = (data) => {
-    let descriptionDiv = document.getElementById("description")
-    let description = data.weather[0].description; 
-     console.log(description)
-       descriptionDiv.innerText = description 
-}
-
-form.addEventListener('submit', formHandler2)
-
 form.addEventListener('submit', formHandler)
 
 
@@ -68,9 +59,25 @@ const asssembleData = async (getData) => {
     //const weather = new Weather()
 }
 
-}
-
 const createCard = () => {
     console.log(weatherObject.currentTemp)
     //const weather = new Weather()
 }
+
+document.getElementById("metric-button").onclick = function() {
+    //  unit = "metric"
+  };
+
+document.getElementById("imperial-button").onclick = function() {
+    // show imperial
+  };
+
+// // get Data (description)
+// const getWeather = (data) => {
+//     let descriptionDiv = document.getElementById("description")
+//     let description = data.weather[0].description; 
+//      console.log(description)
+//        descriptionDiv.innerText = description 
+// }
+
+// form.addEventListener('submit', formHandler2)

@@ -3,7 +3,7 @@ function Weather(currentWeather, date) {
     this.date = date;
 }
 
-Weather.prototype.displayWeather() {
+Weather.prototype.displayWeather(){
     const weatherCard = document.getElementsByClassName('weather-card');
     weatherCard.innerHtml = this.currentWeather;
 }
