@@ -48,32 +48,29 @@ const formHandler = (event) => {
     event.preventDefault();
     getData().then(displayData).catch(apiError);
     asssembleData(getData).then(createWeatherObject);
-    //createWeatherObject();
 }
 
 const asssembleData = async (getData) => {
-    const {main} = await getData();
-    weatherObject.currentTemp = await main.temp;
-    weatherObject.maxTemp = main.temp_max;
-    weatherObject.minTemp = main.temp_min;
-    console.log('second ' + weatherObject)
+    const {main,wind,weather,name} = await getData();
+    weatherObject.cityName    = name;
+    weatherObject.currentTemp = main.temp;
+    weatherObject.maxTemp     = main.temp_max;
+    weatherObject.minTemp     = main.temp_min;
+    weatherObject.feelsLike   = main.feels_like;
+    weatherObject.humidity    = main.humidity;
+    weatherObject.windspeed   = wind.speed;
+    weatherObject.description = weather[0].description;
 
     return 
 }
 
 const createWeatherObject =  async () => {
     const currentTemp =  await weatherObject.currentTemp
-    console.log('third ' + currentTemp)
     const weather =  await new Weather(currentTemp)
     weather.displayWeather(currentTemp);
 
-    return
+    console.log(weatherObject)
 }
 
-
-// const createCard = () => {
-
-//     weather.displayWeather()
-// }
 
 form.addEventListener('submit', formHandler )
