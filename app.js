@@ -6,10 +6,8 @@ function Weather(weatherobject) {
     //this.date = date;
 }
 
-
-
 Weather.prototype.displayWeather = (weatherObject) => {
-    const {cityName, currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed, description} = weatherObject;
+    const {cityName, currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed, description,icon } = weatherObject;
     //document.getElementsByClassName('weather-card')[0].innerHTML =
     let item = 8;
     const newDiv = document.createElement("div");
@@ -21,6 +19,7 @@ Weather.prototype.displayWeather = (weatherObject) => {
             <h2 class='header'>${cityName}</h2>
             <p class='card-current-temp'><strong>Current Temp:</strong> ${currentTemp}</p>
             <p class='card-description'><strong>Description:</strong> ${description}</p>
+            <img src=
             <p class='card-max-temp'><strong>Max Temp:</strong> ${maxTemp}</p>
             <p class='card-min-temp'><strong>Min Temp:</strong> ${minTemp}</p>
             <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
@@ -82,10 +81,11 @@ const asssembleData = async (getData) => {
     weatherObject.minTemp     = main.temp_min;
     weatherObject.feelsLike   = main.feels_like;
     weatherObject.humidity    = main.humidity;
+    weatherObject.icon        = weather[0].icon;
     weatherObject.windspeed   = wind.speed;
     weatherObject.description = weather[0].description;
 
-    return 
+    return weatherObject
 }
 
 const createWeatherObject =  async () => {
