@@ -7,6 +7,8 @@ const weatherObject = {}
 
 const form = document.getElementById('form');
 let unit = undefined;
+
+
 function Weather(weatherobject) {
     this.id = 0
     this.weather = weatherobject;
