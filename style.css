@@ -6,10 +6,13 @@ body {
     width: 100vw;
     height: 50vh;
     border: 1px solid red;
+    flex-direction: row;
 }
 
 .weather-card {
     width: 30vw;
     height: 40vh;
-    border: 1px solid blue;
+    border: 1px solid black;
+    background-color: white;
+    text-align: center;
 }
