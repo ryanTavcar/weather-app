@@ -39,8 +39,16 @@ const formHandler = (event) => {
 }
 
 const asssembleData = async (getData) => {
-    const {main} = await getData();
+    const {main,wind,weather,name} = await getData();
+    weatherObject.cityName = name;
     weatherObject.currentTemp = main.temp;
+    weatherObject.maxTemp = main.temp_max;
+    weatherObject.minTemp = main.temp_min;
+    weatherObject.feelsLike = main.feels_like;
+    weatherObject.humidity = main.humidity;
+    weatherObject.windspeed = wind.speed;
+    weatherObject.description = weather[0].description;
+    // weatherObject.icon = weather[0].icon;
     console.log(weatherObject)
     //const weather = new Weather()
 }
