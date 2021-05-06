@@ -28,6 +28,7 @@ const apiError = (error) => {
 
 const displayData = (data) => {
     const {main} = data;
+    console.log(main);
     weatherObject = {
         currentTemp: main.temp
     }
@@ -37,12 +38,12 @@ const displayData = (data) => {
 const formHandler = (event) => {
     event.preventDefault();
     getData().then (data => console.log(data))
-    .then(displayData).catch(apiError)
-    
-
+    .then(displayData).catch(apiError)   
 }
 
 const createCard = () => {
     console.log(weatherObject.currentTemp)
     //const weather = new Weather()
 }
+
+form.addEventListener('submit', formHandler )
