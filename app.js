@@ -40,7 +40,7 @@ const formHandler = (event) => {
 
 const asssembleData = async (getData) => {
     const {main,wind,weather,name} = await getData();
-    weatherObject.cityName = name;
+    weatherObject.cityName = name
     weatherObject.currentTemp = main.temp;
     weatherObject.maxTemp = main.temp_max;
     weatherObject.minTemp = main.temp_min;
@@ -52,6 +52,7 @@ const asssembleData = async (getData) => {
     console.log(weatherObject)
     //const weather = new Weather()
 }
+
 
 const createCard = () => {
     console.log(weatherObject.currentTemp)
