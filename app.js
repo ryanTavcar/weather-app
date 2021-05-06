@@ -8,43 +8,41 @@ const weatherObject = {}
 const form = document.getElementById('form');
 let unit = undefined;
 
-
-function Weather(weatherobject) {
-    this.id = 0
-    this.weather = weatherobject;
-    //this.date = date;
-}
-
-
-
-Weather.prototype.displayWeather = (weatherObject) => {
-    const {cityName, currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed, description, icon} = weatherObject;
+class Weather {
     
-    const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
-    let item = 8;
-    const newDiv = document.createElement("div");
-    newDiv.class = 'weather-card'
-    while (item--) {
-        newDiv.innerHTML = 
-        `
-        <div class='card'>
-            <h2 class='header'>${cityName}</h2>
-            <img id='icon' src=${iconURL} alt='weather icon'>
-            <p class='card-current-temp'><strong>Current Temp:</strong> ${currentTemp}</p>
-            <p class='card-description'><strong>Description:</strong> ${description}</p>
-            <p class='card-max-temp'><strong>Max Temp:</strong> ${maxTemp}</p>
-            <p class='card-min-temp'><strong>Min Temp:</strong> ${minTemp}</p>
-            <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
-            <p class='card-humidity'><strong>Humidity:</strong> ${humidity}</p>
-            <p class='card-windspeed'><strong>Windspeed:</strong> ${windspeed}</p>
-        </div`
-    
-        const section = document.getElementById('weather-container');
-        section.appendChild(newDiv);
+    constructor(weatherObject) {
+        this.id = 0
+        this.weather = weatherObject;
     }
 
+    displayWeather() {
+        const {cityName, currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed, description, icon} = this.weather;
+    
+        const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
+        let item = 8;
+        const newDiv = document.createElement("div");
+        newDiv.class = 'weather-card'
+        while (item--) {
+            newDiv.innerHTML = 
+            `
+            <div class='card'>
+                <h2 class='header'>${cityName}</h2>
+                <img id='icon' src=${iconURL} alt='weather icon'>
+                <p class='card-current-temp'><strong>Current Temp:</strong> ${currentTemp}</p>
+                <p class='card-description'><strong>Description:</strong> ${description}</p>
+                <p class='card-max-temp'><strong>Max Temp:</strong> ${maxTemp}</p>
+                <p class='card-min-temp'><strong>Min Temp:</strong> ${minTemp}</p>
+                <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
+                <p class='card-humidity'><strong>Humidity:</strong> ${humidity}</p>
+                <p class='card-windspeed'><strong>Windspeed:</strong> ${windspeed}</p>
+            </div`
+        
+            const section = document.getElementById('weather-container');
+            section.appendChild(newDiv);
+        }
+    
+    }
 }
-
 
 const getData = async () => {
     try {
@@ -109,25 +107,19 @@ const createCard = () => {
 
 document.getElementById("metric-button").onclick = function() {
     //  unit = "metric"
-  };
+};
 
 document.getElementById("imperial-button").onclick = function() {
     // show imperial
-  };
+};
 
-// // get Data (description)
-// const getWeather = (data) => {
-//     let descriptionDiv = document.getElementById("description")
-//     let description = data.weather[0].description; 
-//      console.log(description)
-//        descriptionDiv.innerText = description 
-// }
-
-// form.addEventListener('submit', formHandler2)
 const createWeatherObject =  async () => {
-    //const weatherObject = await weatherObject
-    const weather =  new Weather()
-    weather.displayWeather(weatherObject);
+
+    // const weather =  new Weather()
+    // weather.displayWeather(weatherObject);
+
+    const weather =  new Weather(weatherObject)
+    weather.displayWeather();
 
     console.log(weatherObject)
 }
