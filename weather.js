@@ -11,47 +11,41 @@ export class Weather {
         const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
         const newDiv = document.createElement("div");
         newDiv.class = 'weather-card';
-        let ifTrue = true;
-        while (ifTrue) {
-            newDiv.innerHTML = 
-            `
-            <div class='card'>
-                <p class='card-current-temp'>${currentTemp}°</p>
-                <p class='card-feels-like'>Feels Like:${feelsLike}</p>
+        newDiv.innerHTML = 
+        `
+        <div class='card'>
+            <p class='card-current-temp'>${currentTemp}°</p>
+            <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
 
-                <img id='icon' src=${iconURL} alt='weather icon'>
-                
-                <div class="temp">
-                <p class='card-temp'><span class="maxtemp">${maxTemp}°</span>/${minTemp}°</p>
-                <p class='card-description'>${description}</p>
-                </div>
+            <img id='icon' src=${iconURL} alt='weather icon'>
 
-                <h2 class='header'>${cityName}</h2>
+            <div class="temp">
+            <p class='card-temp'><span class="maxtemp">${maxTemp}°</span>/${minTemp}°</p>
+            <p class='card-description'>${description}</p>
+            </div>
 
-                <p class='card-humidity'><strong>Humidity:</strong> ${humidity}</p>
-                <p class='card-windspeed'><strong>Windspeed:</strong> ${windspeed}</p>
-            
-            </div>`
-        
-            const section = document.getElementById('weather-container');
-            section.appendChild(newDiv);
+            <h2 class='header'>${cityName}</h2>
+            <p class='card-humidity'><strong>Humidity:</strong> ${humidity}</p>
+            <p class='card-windspeed'><strong>Windspeed:</strong> ${windspeed}</p>
+        </div>`
+    
+        const section = document.getElementById('weather-container');
+        section.appendChild(newDiv);
 
-            ifTrue = false
-        }
         
         return;
     }
 
     removedDecimal() {
-       let {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.weather;
+        let {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.weather;
 
-       currentTemp = Math.trunc(currentTemp);
-       maxTemp = Math.trunc(maxTemp);
-       minTemp = Math.trunc(minTemp);
-       feelsLike = Math.trunc(feelsLike);
-       humidity = Math.trunc(humidity);
-       windspeed = Math.trunc(windspeed);
-       return {
+        currentTemp = Math.trunc(currentTemp);
+        maxTemp = Math.trunc(maxTemp);
+        minTemp = Math.trunc(minTemp);
+        feelsLike = Math.trunc(feelsLike);
+        humidity = Math.trunc(humidity);
+        windspeed = Math.trunc(windspeed);
+        return {
             currentTemp,
             maxTemp,
             minTemp,
