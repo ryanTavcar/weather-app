@@ -9,8 +9,9 @@ function Weather(weatherobject) {
 
 
 Weather.prototype.displayWeather = (weatherObject) => {
-    const {cityName, currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed, description} = weatherObject;
-    //document.getElementsByClassName('weather-card')[0].innerHTML =
+    const {cityName, currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed, description, icon} = weatherObject;
+    
+    const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
     let item = 8;
     const newDiv = document.createElement("div");
     newDiv.class = 'weather-card'
@@ -19,6 +20,7 @@ Weather.prototype.displayWeather = (weatherObject) => {
         `
         <div class='card'>
             <h2 class='header'>${cityName}</h2>
+            <img id='icon' src=${iconURL} alt='weather icon'>
             <p class='card-current-temp'><strong>Current Temp:</strong> ${currentTemp}</p>
             <p class='card-description'><strong>Description:</strong> ${description}</p>
             <p class='card-max-temp'><strong>Max Temp:</strong> ${maxTemp}</p>
@@ -33,6 +35,7 @@ Weather.prototype.displayWeather = (weatherObject) => {
     }
 
 }
+
 
 
 const form = document.getElementById('form');
@@ -84,6 +87,7 @@ const asssembleData = async (getData) => {
     weatherObject.humidity    = main.humidity;
     weatherObject.windspeed   = wind.speed;
     weatherObject.description = weather[0].description;
+    weatherObject.icon        = weather[0].icon;
 
     return 
 }
