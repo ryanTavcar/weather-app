@@ -7,7 +7,8 @@ const APIkey    = 'f18b6ae1c57f039f48f95ade89757557';
 const getData = async () => {
     try {
         const cityName = inputValue();
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`);
+        const unit = 'metric'
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unit}&appid=${APIkey}`);
         const data = await response.json();
         return data
     } catch (err) {
@@ -28,8 +29,6 @@ const displayData = (data) => {
     console.log(data)
 }
 
-
-
 const formHandler = (event) => {
     event.preventDefault();
     getData().then(displayData).catch(apiError);
@@ -37,5 +36,5 @@ const formHandler = (event) => {
 
 
 
-form.addEventListener('submit', formHandler() )
+form.addEventListener('submit', formHandler )
 
