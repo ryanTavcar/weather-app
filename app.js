@@ -8,6 +8,7 @@ const getData = async () => {
     const cityName = inputValue();
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${APIkey}`);
     const data = await response.json();
+    
     return data
 }
 
@@ -19,6 +20,16 @@ inputValue();
 
 document.getElementById('form').addEventListener('submit', (event) => {
     event.preventDefault();
-    getData().then(data => console.log(data));
+    getData()
+    .then(data => console.log(data))
+    .then(weather)
+    .catch(error => console.log(error))
+
 })
+
+function weather (data) {
+    const{main,weather} = data;
+    const currentTemp = main.temp
+    console.log(currentTemp);
+}
 
