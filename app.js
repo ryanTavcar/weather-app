@@ -1,7 +1,12 @@
+//const Weather = require('weather.js')
+
 const form = document.getElementById('form');
 
 
 const APIkey    = 'f18b6ae1c57f039f48f95ade89757557';
+
+
+const weatherObject = {}
 
 
 const getData = async () => {
@@ -27,13 +32,21 @@ const apiError = (error) => {
 
 const displayData = (data) => {
     console.log(data)
+    return data
 }
 
 const formHandler = (event) => {
     event.preventDefault();
     getData().then(displayData).catch(apiError);
+    asssembleData(getData);
 }
 
+const asssembleData = async (getData) => {
+    const {main} = await getData();
+    weatherObject.currentTemp = main.temp;
+    console.log(weatherObject)
+    //const weather = new Weather()
+}
 
 
 form.addEventListener('submit', formHandler )
