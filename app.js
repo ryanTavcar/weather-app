@@ -5,9 +5,9 @@ function Weather(currentWeather) {
     //this.date = date;
 }
 
-Weather.prototype.displayWeather = () => {
-    const weatherCard = document.getElementById('weather-card');
-    weatherCard.innerText = this.currentTemp;
+Weather.prototype.displayWeather = (currentTemp) => {
+    const weatherCard = document.getElementsByClassName('weather-card');
+    weatherCard[0].innerHTML = currentTemp;
 }
 
 
