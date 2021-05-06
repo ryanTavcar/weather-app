@@ -36,7 +36,7 @@ const getData = async () => {
         return data;
 
     } catch (err) {
-        throw new Error(console.error(err.message));
+        throw new Error(err.message);
     }
 }
 
@@ -53,7 +53,20 @@ const clearForm = () => {
 // @params: error
 // @return: 
 const apiError = (error) => {
-    console.error(error);
+    console.log(error);
+
+    document.getElementById('hide-alert').setAttribute('id', 'show-alert');
+    const alertDiv = document.getElementById('show-alert') 
+    alertDiv.innerHTML = 'City Not Found';
+
+    // Timeout after 3 sec
+    
+    setTimeout(function(){
+
+        document.getElementById('show-alert').remove()
+    }, 
+    3000);
+
     return;
 }
 
@@ -70,24 +83,31 @@ const displayData = (data) => {
 // @return
 const formHandler = (event) => {
     event.preventDefault();
-    getData().then(displayData).catch(apiError);
-    asssembleData(getData).then(createWeatherObject);
+    getData()
+    //.then(displayData)
+    .then(asssembleData)
+    .then(createWeatherObject)
+    .catch(apiError);
 
 }
 
 // @descriptions: 
 // @params: event
 // @return:
-const formHandler2 = (event) => {
-    event.preventDefault();
-    getData().then(getWeather).catch(apiError);
-}
+// const formHandler2 = (event) => {
+//     event.preventDefault();
+//     getData().then(getWeather).catch(apiError);
+// }
 
 // @descriptions: Assembles data from JSON/API into an object literal to easier make weather card
 // @params: getData function which returns JSON data
 // @return: weatherObject Object Literal
-const asssembleData = async (getData) => {
-    const {main,wind,weather,name} = await getData();
+const asssembleData = (data) => {
+
+    displayData(data);
+
+    const {main,wind,weather,name} = data;
+
     weatherObject.cityName    = name;
     weatherObject.currentTemp = main.temp;
     weatherObject.maxTemp     = main.temp_max;
