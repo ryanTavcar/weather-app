@@ -5,13 +5,23 @@ const APIkey = 'f18b6ae1c57f039f48f95ade89757557';
 
 const weatherObject = {}
 
+const colorScheme = [
+    { name: 'crimson'       , rgb: 'rgb(220,20,60)'  , hex: '#DC143C' },
+    { name: 'maroon'        , rgb: 'rgb(128,0,0)'    , hex: '#800000' },
+    { name: 'forestgreen'   , rgb: 'rgb(34,139,34)'  , hex: '#228B22' },
+    { name: 'seagreen'      , rgb: 'rgb(46,139,87)'  , hex: '#2E8B57' },
+    { name: 'skyblue'       , rgb: 'rgb(135,206,235)', hex: '#87CEEB' },
+    { name: 'indigo'        , rgb: 'rgb(75,0,130)'   , hex: '#4B0082' }
+]
+
+
+
 const form = document.getElementById('form');
 let unit = undefined;
 
 class Weather {
-    
+
     constructor(weatherObject) {
-        this.id = 0
         this.weather = weatherObject;
     }
 
@@ -19,10 +29,10 @@ class Weather {
         const {cityName, currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed, description, icon} = this.weather;
     
         const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
-        let item = 8;
         const newDiv = document.createElement("div");
-        newDiv.class = 'weather-card'
-        while (item--) {
+        newDiv.class = 'weather-card';
+        let ifTrue = true;
+        while (ifTrue) {
             newDiv.innerHTML = 
             `
             <div class='card'>
@@ -39,10 +49,14 @@ class Weather {
         
             const section = document.getElementById('weather-container');
             section.appendChild(newDiv);
+
+            ifTrue = false
         }
+
     
     }
 }
+
 
 const getData = async () => {
     try {
@@ -66,7 +80,7 @@ const apiError = (error) => {
 }
 
 const displayData = (data) => {
-    console.log(data)
+    console.log(`API DATA: ${data}`)
     return
 }
 
@@ -114,14 +128,11 @@ document.getElementById("imperial-button").onclick = function() {
 };
 
 const createWeatherObject =  async () => {
-
-    // const weather =  new Weather()
-    // weather.displayWeather(weatherObject);
-
+    
     const weather =  new Weather(weatherObject)
+
     weather.displayWeather();
 
-    console.log(weatherObject)
 }
 
 
