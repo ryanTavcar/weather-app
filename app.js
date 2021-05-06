@@ -1,7 +1,14 @@
+//const Weather = require('weather.js')
+
 const form = document.getElementById('form');
 
 
+const form = document.getElementById('form');
 const APIkey    = 'f18b6ae1c57f039f48f95ade89757557';
+
+let weatherObject ={}
+
+const weatherObject = {}
 
 
 const getData = async () => {
@@ -27,11 +34,13 @@ const apiError = (error) => {
 
 const displayData = (data) => {
     console.log(data)
+    return data
 }
 
 const formHandler = (event) => {
     event.preventDefault();
     getData().then(displayData).catch(apiError);
+    asssembleData(getData);
 }
 
 const formHandler2 = (event) => {
@@ -52,3 +61,16 @@ form.addEventListener('submit', formHandler2)
 form.addEventListener('submit', formHandler)
 
 
+const asssembleData = async (getData) => {
+    const {main} = await getData();
+    weatherObject.currentTemp = main.temp;
+    console.log(weatherObject)
+    //const weather = new Weather()
+}
+
+}
+
+const createCard = () => {
+    console.log(weatherObject.currentTemp)
+    //const weather = new Weather()
+}

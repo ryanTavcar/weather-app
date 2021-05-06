@@ -1,3 +1,15 @@
 body {
     background-color: blanchedalmond;
 }
+
+#weather-container {
+    width: 100vw;
+    height: 50vh;
+    border: 1px solid red;
+}
+
+.weather-card {
+    width: 30vw;
+    height: 40vh;
+    border: 1px solid blue;
+}
