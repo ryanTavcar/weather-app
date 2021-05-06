@@ -34,7 +34,21 @@ const formHandler = (event) => {
     getData().then(displayData).catch(apiError);
 }
 
+const formHandler2 = (event) => {
+    event.preventDefault();
+    getData().then(getWeather).catch(apiError);
+}
 
+// get Data (description)
+const getWeather = (data) => {
+    let descriptionDiv = document.getElementById("description")
+    let description = data.weather[0].description; 
+     console.log(description)
+       descriptionDiv.innerText = description 
+}
 
-form.addEventListener('submit', formHandler )
+form.addEventListener('submit', formHandler2)
+
+form.addEventListener('submit', formHandler)
+
 
