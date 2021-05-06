@@ -1,27 +1,30 @@
 body {
-  background-color: #3b5998;
+}
+
+#background-img {
+  overflow: hidden;
+  position: relative;
+}
+
+.demo-bg {
+  opacity: 0.6;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 1;
 }
 
 nav {
-  background-color: #3b5998;
   color: white;
+  z-index: 2;
 }
 
 #weather-container {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(00px, 1fr));
-}
-
-.weather-card {
-  width: 500px;
-}
-
-.card {
-  background-color: white;
-  border: 1px solid blue;
-  margin: 20px;
-  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 #button {
@@ -40,9 +43,34 @@ nav {
 }
 
 .card {
-  width: 30vw;
-  height: 40vh;
-  border: 2px solid black;
-  background-color: white;
+  width: auto;
+  height: auto;
+  background-color: yellow;
+  border-radius: 5%;
+  margin: 20px;
   text-align: center;
+}
+#icon {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: 15vw;
+  height: 15vh;
+}
+
+h2 {
+  border-top: solid 3px #ffffff;
+}
+
+.max-temp {
+  font-size: 40px;
+}
+
+.card-temp {
+  font-size: 20px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
 }

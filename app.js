@@ -7,6 +7,8 @@ const weatherObject = {}
 
 const form = document.getElementById('form');
 let unit = undefined;
+
+
 function Weather(weatherobject) {
     this.id = 0
     this.weather = weatherobject;
@@ -26,16 +28,21 @@ Weather.prototype.displayWeather = (weatherObject) => {
         newDiv.innerHTML = 
         `
         <div class='card'>
-            <h2 class='header'>${cityName}</h2>
             <img id='icon' src=${iconURL} alt='weather icon'>
-            <p class='card-current-temp'><strong>Current Temp:</strong> ${currentTemp}</p>
-            <p class='card-description'><strong>Description:</strong> ${description}</p>
-            <p class='card-max-temp'><strong>Max Temp:</strong> ${maxTemp}</p>
-            <p class='card-min-temp'><strong>Min Temp:</strong> ${minTemp}</p>
-            <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
+            <p class='card-current-temp'><strong>Current Temp:</strong> ${currentTemp}</p> 
             <p class='card-humidity'><strong>Humidity:</strong> ${humidity}</p>
             <p class='card-windspeed'><strong>Windspeed:</strong> ${windspeed}</p>
-        </div`
+            <p class='card-temp'><span class="max-temp">${maxTemp}</span>/${minTemp}   <span class="des">${description}</span></p>
+            <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
+            <h2 class='header'>${cityName}</h2>
+　　　　　　　
+            <button type="button" class="btn" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"> 5 Days Weather </button>
+       　　　
+            <div class="collapse" id="collapseExample">
+            <div class="p-3">
+                5 Days data
+            </div>
+        </div>`
     
         const section = document.getElementById('weather-container');
         section.appendChild(newDiv);
