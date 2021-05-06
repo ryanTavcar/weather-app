@@ -8,16 +8,15 @@ nav {
 }
 
 #weather-container {
-  width: 100vw;
-  height: 50vh;
-  border: 1px solid red;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.weather-card {
+.card {
   background-color: white;
   border: 1px solid blue;
   margin: 20px;
-  width: 20rem;
 }
 
 #button {
