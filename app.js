@@ -15,7 +15,8 @@ const colorScheme = [
     { name: 'forestgreen'   , rgb: 'rgb(34,139,34)'  , hex: '#228B22' },
     { name: 'seagreen'      , rgb: 'rgb(46,139,87)'  , hex: '#2E8B57' },
     { name: 'skyblue'       , rgb: 'rgb(135,206,235)', hex: '#87CEEB' },
-    { name: 'indigo'        , rgb: 'rgb(75,0,130)'   , hex: '#4B0082' }
+    { name: 'indigo'        , rgb: 'rgb(75,0,130)'   , hex: '#4B0082' },
+    { name: 'dark'          , rgb: 'rgb(39,39,39)'   , hex: '#272727' }
 ];
 
 
@@ -26,11 +27,14 @@ const colorScheme = [
 // @return: API data in json format
 const getData = async () => {
     try {
-        const cityName = inputValue();
-        const unit = 'metric';
+        const cityName = document.getElementById('input').value;
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=${unit}&appid=${APIkey}`);
         const data = await response.json();
+
+        clearForm();
+
         return data;
+
     } catch (err) {
         throw new Error(console.error(err.message));
     }
@@ -38,11 +42,12 @@ const getData = async () => {
 
 // @descriptions: 
 // @params: none
-// @return: return user input value of city name
-const inputValue = () => {
-    const cityName = document.getElementById('input').value;
-    return cityName;
+// @return: Clear input value from form when clicked submit
+const clearForm = () => {
+    return document.getElementById('input').value = '';
 }
+
+
 
 // @descriptions: Console.log the error that may occur when getting API
 // @params: error
@@ -56,7 +61,7 @@ const apiError = (error) => {
 // @params: data
 // @return
 const displayData = (data) => {
-    console.log(`API DATA: ${data}`);
+    console.log(data);
     return;
 }
 
@@ -116,14 +121,58 @@ const createWeatherObject =  async () => {
     return;
 }
 
+const waitForCard = () => {
+    return new Promise( (resolve, reject) => {
+        resolve(document.getElementsByClassName('card')[0]);
+    })
+    //console.log(cardElement)
+    //cardElement.style.borderColor = 'green'
+}
+
+const colorUI = (event) => {
+    event.preventDefault();
+
+    if (event.target.matches('#dropdown-item1')) {
+        document.body.style.backgroundColor = colorScheme[0].rgb;
+        //waitForCard().then(cardElement => console.log(cardElement)).catch(error => console.error(error));
+    }
+    if (event.target.matches('#dropdown-item2')) {
+        document.body.style.backgroundColor = colorScheme[1].rgb;
+    }
+    if (event.target.matches('#dropdown-item3')) {
+        document.body.style.backgroundColor = colorScheme[2].rgb;
+    }
+    if (event.target.matches('#dropdown-item4')) {
+        document.body.style.backgroundColor = colorScheme[3].rgb;
+    }
+    if (event.target.matches('#dropdown-item5')) {
+        document.body.style.backgroundColor = colorScheme[4].rgb;
+    }
+    if (event.target.matches('#dropdown-item6')) {
+        document.body.style.backgroundColor = colorScheme[5].rgb;
+    } 
+    if (event.target.matches('#dropdown-item7')) {
+        document.body.style.backgroundColor = colorScheme[6].rgb;
+    } 
+}
+
 // Event Listener
 form.addEventListener('submit', formHandler)
 
+let elements = document.getElementsByClassName('dropdown-item');
 
-document.getElementById("metric-button").onclick = function() {
-    //  unit = "metric"
-};
+for (let i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', colorUI)  
+}
 
-document.getElementById("imperial-button").onclick = function() {
-    // show imperial
-};
+
+document.getElementById("metric-button").addEventListener('click', (event) => {
+    event.preventDefault();
+    unit = "metric"
+});
+    
+
+document.getElementById("imperial-button").addEventListener('click', (event) => {
+    event.preventDefault();
+    unit = "imperial"
+});
