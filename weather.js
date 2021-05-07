@@ -14,7 +14,7 @@ export class Weather {
         newDiv.class = 'weather-card';
         newDiv.innerHTML = 
         `
-        <div class='card' style='background-color: ${item}'>
+        <div class='card' id="card" style='background-color: ${item}'>
             <p class='card-current-temp'>${currentTemp}°</p>
             <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
 

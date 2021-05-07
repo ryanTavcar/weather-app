@@ -171,3 +171,30 @@ document.getElementById("imperial-button").addEventListener('click', (event) => 
     event.preventDefault();
     unit = "imperial"
 });
+
+// Imperial button and Matric button
+function clickSwitch() {
+    'use strict';
+    var isA = 0;
+    var btnA = document.getElementById('metric-button');
+    var btnB = document.getElementById('imperial-button');
+   
+    function setState(isA) {
+      btnA.className = (isA == 0) ? 'btn inactive' : 'btn'; 
+      btnB.className = (isA == 1) ? 'btn inactive' : 'btn'; 
+    }
+    setState(0);
+   
+    btnA.addEventListener('click', function(){
+      if (isA == 0) return;
+      isA = 0;
+      setState(0);
+    });
+    btnB.addEventListener('click', function(){
+      if (isA == 1) return;
+      isA = 1;
+      setState(1);
+    });
+  };
+  document.addEventListener("DOMContentLoaded", clickSwitch, false);
+
