@@ -1,103 +1,115 @@
 body {
-    background: url('weather-img.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-
+  font-family: "Open Sans Condensed", sans-serif;
+  background: url("rain-gif.gif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
+main {
+  width: 80%;
+  margin: auto;
+}
+
+p {
+  margin: 0;
+}
 
 nav {
- 
-    color: white;
-    z-index: 2;
+  background-color: #333333;
+}
+
+#navbar-brand-id {
+  color: white;
 }
 
 #weather-container {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
 #button {
-    display: inline-block;
-    padding: 0.3em 1em;
-    text-decoration: none;
-    color: #ffaa55;
-    border: solid 2px c;
-    border-radius: 3px;
-    transition: 0.4s;
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  background: #a29b8b;
+  color: white;
 }
 
 #button:hover {
-    background: #ffaa55;
-    color: white;
+  color: white;
+  border: solid 2px c;
+  border-radius: 3px;
+  transition: 0.4s;
+  background-color: #84b0b6;
+}
+
+#menu-button {
+  background-color: #333333;
+  color: white;
 }
 
 .card {
-    width: 280px;
-    height: auto;
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 5%;
-    margin: 20px;
-    text-align: center;
-
+  width: auto;
+  height: auto;
+  background-color: #739bac;
+  border-radius: 5%;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+  border: 5px solid #1c3033;
 }
+
 #icon {
-    display: flex;
-    justify-self: center;
-    align-self: center;
-    width: 15vw;
-    height: 15vh;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  width: 10vw;
+  float: left;
 }
 
-.dropdown-menu.show {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 5rem;
-    height: auto;
-    background-color: transparent;
-    border: none;
+h2 {
+  color: #ffffff;
+  border-top: solid 3px #ffffff;
+  text-align: left;
+  padding-top: 10px;
 }
 
-.dropdown-item {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid black;
+.maxtemp {
+  font-size: 40px;
+  text-align: left;
 }
 
-#dropdown-item1 {
-    background-color: rgb(220,20,60);
+.card-current-temp {
+  color: #ffffff;
+  font-size: 30px;
 }
-#dropdown-item2 {
-    background-color: rgb(128,0,0);
+
+small {
+  text-align: left;
 }
-#dropdown-item3 {
-    background-color: rgb(34,139,34);
+
+.card-temp {
+  text-align: left;
+  float: left;
 }
-#dropdown-item4 {
-    background-color: rgb(46,139,87);
-}
-#dropdown-item5 {
-    background-color: rgb(135,206,235);
-}
-#dropdown-item6 {
-    background-color: rgb(75,0,130);
-}
-#dropdown-item7 {
-    background-color: rgb(39,39,39);
+
+.card-description {
+  float: right;
+  font-size: 20px;
+  text-align: right;
+  width: 50%;
+  vertical-align: text-bottom;
 }
 
 #show-alert {
-    width: 100vw;
-    height: 3rem;
-    background-color: red;
-    color: white;
-    font-size: 1.5em;
-    font-weight: 700;
-    margin: 0;
-    padding: 5px;
-    text-align: center;
+  width: 100vw;
+  height: 3rem;
+  background-color: red;
+  color: white;
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
 }

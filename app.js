@@ -15,7 +15,6 @@ const dom = {
     appName       : document.getElementById('navbar-brand-id'),
     metricButton  : document.getElementById('metric-button'),
     imperialButton: document.getElementById('imperial-button'),
-    dropdown      : document.getElementById('navbarDropdown'),
     formButton    : document.getElementById('button'),
 }
 
@@ -62,7 +61,9 @@ const apiError = (error) => {
     
     setTimeout(function(){
 
-        document.getElementById('show-alert').remove()
+        let toggle = document.getElementById('show-alert')
+        toggle.id = 'hide-alert';
+        toggle.innerHTML = '';
     }, 
     3000);
 
@@ -113,6 +114,7 @@ const asssembleData = (data) => {
     weatherObject.minTemp     = main.temp_min;
     weatherObject.feelsLike   = main.feels_like;
     weatherObject.humidity    = main.humidity;
+    weatherObject.icon        = weather[0].icon;
     weatherObject.windspeed   = wind.speed;
     weatherObject.description = weather[0].description;
     weatherObject.icon        = weather[0].icon;
