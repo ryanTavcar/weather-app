@@ -1,5 +1,6 @@
 import { Weather } from './weather.js';
 
+
 // GLOBAL VARIABLES
 const APIkey = 'f18b6ae1c57f039f48f95ade89757557';
 
@@ -46,7 +47,6 @@ const clearForm = () => {
 }
 
 
-
 // @descriptions: Console.log the error that may occur when getting API
 // @params: error
 // @return: 
@@ -87,6 +87,7 @@ const formHandler = (event) => {
     //.then(displayData)
     .then(asssembleData)
     .then(createWeatherObject)
+
     .catch(apiError);
 
 }
@@ -122,44 +123,21 @@ const asssembleData = (data) => {
     return;
 }
 
-// @descriptions: 
-// @params: none
-// @return
-const createCard = () => {
-    console.log(weatherObject.currentTemp)
-
-}
-
 // @descriptions: Create Card using Weather Class
 // @params: none
 // @return: 
 const createWeatherObject =  async () => {
-    
-    const weather =  new Weather(weatherObject)
+
+    const weather = new Weather(weatherObject)
 
     weather.displayWeather();
 
     return;
+    
 }
-
-const waitForCard = () => {
-    return new Promise( (resolve, reject) => {
-        resolve(document.getElementsByClassName('card')[0]);
-    })
-    //console.log(cardElement)
-    //cardElement.style.borderColor = 'green'
-}
-
 
 // Event Listener
 form.addEventListener('submit', formHandler)
-
-let elements = document.getElementsByClassName('dropdown-item');
-
-for (let i = 0; i < elements.length; i++) {
-    elements[i].addEventListener('click', colorUI)  
-}
-
 
 document.getElementById("metric-button").addEventListener('click', (event) => {
     event.preventDefault();
