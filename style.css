@@ -78,6 +78,15 @@ nav {
   opacity: 0.5;
   cursor: default;
 }
+#imperial-button:hover {
+  background-color: #84b0b6;
+  color: white;
+}
+
+#metric-button:hover {
+  background-color: #84b0b6;
+  color: white;
+}
 
 .card {
   width: auto;
@@ -87,7 +96,8 @@ nav {
   margin: 20px;
   padding: 20px;
   text-align: center;
-  border: 5px solid #1c3033;
+  border: 3px solid #1c3033;
+  box-shadow: 2px 4px #778776;
 }
 
 #icon {
