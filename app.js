@@ -1,5 +1,6 @@
 import { Weather } from './weather.js';
 
+
 // GLOBAL VARIABLES
 const APIkey = 'f18b6ae1c57f039f48f95ade89757557';
 
@@ -10,13 +11,6 @@ let unit = 'metric';
 
 const weatherObject = {};
 
-// Object for regular used dom elements
-const dom = {
-    appName       : document.getElementById('navbar-brand-id'),
-    metricButton  : document.getElementById('metric-button'),
-    imperialButton: document.getElementById('imperial-button'),
-    formButton    : document.getElementById('button'),
-}
 
 //Functions
 
@@ -44,7 +38,6 @@ const getData = async () => {
 const clearForm = () => {
     return document.getElementById('input').value = '';
 }
-
 
 
 // @descriptions: Console.log the error that may occur when getting API
@@ -87,17 +80,10 @@ const formHandler = (event) => {
     //.then(displayData)
     .then(asssembleData)
     .then(createWeatherObject)
+
     .catch(apiError);
 
 }
-
-// @descriptions: 
-// @params: event
-// @return:
-// const formHandler2 = (event) => {
-//     event.preventDefault();
-//     getData().then(getWeather).catch(apiError);
-// }
 
 // @descriptions: Assembles data from JSON/API into an object literal to easier make weather card
 // @params: getData function which returns JSON data
@@ -122,44 +108,21 @@ const asssembleData = (data) => {
     return;
 }
 
-// @descriptions: 
-// @params: none
-// @return
-const createCard = () => {
-    console.log(weatherObject.currentTemp)
-
-}
-
 // @descriptions: Create Card using Weather Class
 // @params: none
 // @return: 
 const createWeatherObject =  async () => {
-    
-    const weather =  new Weather(weatherObject)
+
+    const weather = new Weather(weatherObject)
 
     weather.displayWeather();
 
     return;
+    
 }
-
-const waitForCard = () => {
-    return new Promise( (resolve, reject) => {
-        resolve(document.getElementsByClassName('card')[0]);
-    })
-    //console.log(cardElement)
-    //cardElement.style.borderColor = 'green'
-}
-
 
 // Event Listener
 form.addEventListener('submit', formHandler)
-
-let elements = document.getElementsByClassName('dropdown-item');
-
-for (let i = 0; i < elements.length; i++) {
-    elements[i].addEventListener('click', colorUI)  
-}
-
 
 document.getElementById("metric-button").addEventListener('click', (event) => {
     event.preventDefault();
@@ -171,3 +134,30 @@ document.getElementById("imperial-button").addEventListener('click', (event) => 
     event.preventDefault();
     unit = "imperial"
 });
+
+// Imperial button and Matric button
+function clickSwitch() {
+    'use strict';
+    var isA = 0;
+    var btnA = document.getElementById('metric-button');
+    var btnB = document.getElementById('imperial-button');
+   
+    function setState(isA) {
+      btnA.className = (isA == 0) ? 'btn inactive' : 'btn'; 
+      btnB.className = (isA == 1) ? 'btn inactive' : 'btn'; 
+    }
+    setState(0);
+   
+    btnA.addEventListener('click', function(){
+      if (isA == 0) return;
+      isA = 0;
+      setState(0);
+    });
+    btnB.addEventListener('click', function(){
+      if (isA == 1) return;
+      isA = 1;
+      setState(1);
+    });
+  };
+  document.addEventListener("DOMContentLoaded", clickSwitch, false);
+

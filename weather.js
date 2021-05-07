@@ -1,20 +1,22 @@
+
 export class Weather {
 
     constructor(weatherObject) {
         this.weather = weatherObject;
     }
 
-    render(item) {
-        const {cityName, description, icon} = this.weather;
-        const {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.removedDecimal();
 
-        
+    render(item) {
+
+        const {cityName, description, icon} = this.weather;
+        const {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.removedDecimal(); 
         const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
         const newDiv = document.createElement("div");
         newDiv.class = 'weather-card';
         newDiv.innerHTML = 
         `
         <div class='card' style='background-color: ${item}'>
+            <a href='#' id="delete-btn" style='color: white'>X</a>
             <p class='card-current-temp'>${currentTemp}°</p>
             <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
 
@@ -33,8 +35,20 @@ export class Weather {
         const section = document.getElementById('weather-container');
         section.appendChild(newDiv);
     
-    
+        this.deleteCard()
+        
         return;
+    }
+
+    deleteCard(){
+
+        const deleteBtn = document.getElementById('delete-btn');
+        deleteBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            console.log(event.target.parentNode);
+    
+            event.target.parentNode.parentNode.remove();
+        })
     }
 
     shuffle(array) {
@@ -43,13 +57,11 @@ export class Weather {
     }
 
     displayWeather() {
-        let randonColor = ['#A29B8B','#84B0B6', '#486371', '#696486', '#156554', '#91AC79'];
+        let randonColor = ['#A29B8B','#84B0B6', '#86aabd', '#ada7d1', '#6b9c91', '#91AC79'];
         const item = this.shuffle(randonColor)
-        console.log(item[0])
         this.render(item[0])
 
     }
-
 
     removedDecimal() {
         let {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.weather;
@@ -69,6 +81,4 @@ export class Weather {
             windspeed
         }
     }
-
-
 }

@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Weather Zone</title>
 </head>
 
 <body>
@@ -20,17 +20,17 @@
             </button>
         
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0"　id="switch">
                 <li class="nav-item">
-                  <a class="nav-link" id="menu-button" href="#">METRIC</a>
+                 <a class="nav-link menu-button" id="metric-button" href="#">METRIC</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="menu-button" href="#">IMPERIAL</a>
+                  <a class="nav-link menu-button" id="imperial-button" href="#">IMPERIAL</a>
                 </li>
             </ul>
 
             <form class="form-inline my-2 my-lg-0" id="form">
-                <input id="input" class="form-control mr-sm-2" type="search" placeholder='Enter city name'>
+                <input id="input" class="form-control mr-sm-2" type="search" placeholder='Enter location'>
                 <button class="btn  my-2 my-sm-0" id="button" type="sumbit">SEARCH</button>
             </form>
             </div>
@@ -40,12 +40,9 @@
         <div id='hide-alert'></div>
 
         <main>
-        <section id="weather-container">
+            <section id="weather-container">
+            </section>
         </main>
-        
-        
-        </section>
-        
     </div>
     </body>
 　　

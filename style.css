@@ -1,9 +1,10 @@
 body {
   font-family: "Open Sans Condensed", sans-serif;
-  background: url("rain-gif.gif");
+  background: url("rain.gif");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  letter-spacing: 0.05em;
 }
 
 main {
@@ -17,6 +18,7 @@ p {
 
 nav {
   background-color: #333333;
+  height: 70px;
 }
 
 #navbar-brand-id {
@@ -34,6 +36,7 @@ nav {
   text-decoration: none;
   background: #a29b8b;
   color: white;
+  letter-spacing: 0.05em;
 }
 
 #button:hover {
@@ -44,8 +47,44 @@ nav {
   background-color: #84b0b6;
 }
 
-#menu-button {
-  background-color: #333333;
+#imperial-button,
+#metric-button {
+  color: white;
+  padding: 5px;
+  text-align: center;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+  background-color: #a29b8b;
+}
+
+#imperial-button:hover,
+#metric-button:hover {
+  color: white;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#switch {
+  display: block;
+  padding: 0;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.inactive {
+  opacity: 0.5;
+}
+
+.inactive:hover {
+  opacity: 0.5;
+  cursor: default;
+}
+#imperial-button:hover {
+  background-color: #84b0b6;
+  color: white;
+}
+
+#metric-button:hover {
+  background-color: #84b0b6;
   color: white;
 }
 
@@ -55,9 +94,10 @@ nav {
   background-color: #739bac;
   border-radius: 5%;
   margin: 20px;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
-  border: 5px solid #1c3033;
+  border: 3px solid #1c3033;
+  box-shadow: 2px 4px #778776;
 }
 
 #icon {
@@ -99,7 +139,6 @@ small {
   font-size: 20px;
   text-align: right;
   width: 50%;
-  vertical-align: text-bottom;
 }
 
 #show-alert {
