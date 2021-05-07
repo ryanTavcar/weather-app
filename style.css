@@ -1,8 +1,9 @@
 body {
   font-family: "Open Sans Condensed", sans-serif;
-  background: url("weather-img.jpg");
+  background: url("rain-gif.gif");
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 main {
@@ -16,7 +17,9 @@ p {
 
 nav {
   background-color: #333333;
-  opacity: 0.6;
+}
+
+#navbar-brand-id {
   color: white;
 }
 
@@ -29,25 +32,32 @@ nav {
   display: inline-block;
   padding: 0.3em 1em;
   text-decoration: none;
-  color: #ffaa55;
-  border: solid 2px c;
-  border-radius: 3px;
-  transition: 0.4s;
+  background: #a29b8b;
+  color: white;
 }
 
 #button:hover {
-  background: #ffaa55;
+  color: white;
+  border: solid 2px c;
+  border-radius: 3px;
+  transition: 0.4s;
+  background-color: #84b0b6;
+}
+
+#menu-button {
+  background-color: #333333;
   color: white;
 }
 
 .card {
   width: auto;
   height: auto;
-  background-color: #66cdaa;
+  background-color: #739bac;
   border-radius: 5%;
   margin: 20px;
   padding: 10px;
   text-align: center;
+  border: 5px solid #1c3033;
 }
 
 #icon {
@@ -90,45 +100,6 @@ small {
   text-align: right;
   width: 50%;
   vertical-align: text-bottom;
-}
-
-.dropdown-menu.show {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 5rem;
-  height: auto;
-  background-color: transparent;
-  border: none;
-}
-
-.dropdown-item {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid black;
-}
-
-#dropdown-item1 {
-  background-color: rgb(220, 20, 60);
-}
-#dropdown-item2 {
-  background-color: rgb(128, 0, 0);
-}
-#dropdown-item3 {
-  background-color: rgb(34, 139, 34);
-}
-#dropdown-item4 {
-  background-color: rgb(46, 139, 87);
-}
-#dropdown-item5 {
-  background-color: rgb(135, 206, 235);
-}
-#dropdown-item6 {
-  background-color: rgb(75, 0, 130);
-}
-#dropdown-item7 {
-  background-color: rgb(39, 39, 39);
 }
 
 #show-alert {

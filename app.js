@@ -15,7 +15,6 @@ const dom = {
     appName       : document.getElementById('navbar-brand-id'),
     metricButton  : document.getElementById('metric-button'),
     imperialButton: document.getElementById('imperial-button'),
-    dropdown      : document.getElementById('navbarDropdown'),
     formButton    : document.getElementById('button'),
 }
 
