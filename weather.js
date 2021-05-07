@@ -6,9 +6,7 @@ export class Weather {
 
     render(item) {
         const {cityName, description, icon} = this.weather;
-        const {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.removedDecimal();
-
-        
+        const {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.removedDecimal(); 
         const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
         const newDiv = document.createElement("div");
         newDiv.class = 'weather-card';
@@ -43,7 +41,7 @@ export class Weather {
     }
 
     displayWeather() {
-        let randonColor = ['#A29B8B','#84B0B6', '#486371', '#696486', '#156554', '#91AC79'];
+        let randonColor = ['#A29B8B','#84B0B6', '#86aabd', '#ada7d1', '#6b9c91', '#91AC79'];
         const item = this.shuffle(randonColor)
         console.log(item[0])
         this.render(item[0])
@@ -69,6 +67,4 @@ export class Weather {
             windspeed
         }
     }
-
-
 }
