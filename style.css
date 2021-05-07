@@ -1,6 +1,6 @@
 body {
   font-family: "Open Sans Condensed", sans-serif;
-  background: url("weather-img.jpg");
+  background: url("rain-gif.gif");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -43,11 +43,12 @@ nav {
 .card {
   width: auto;
   height: auto;
-  background-color: #66cdaa;
+  background-color: #739BAC;
   border-radius: 5%;
   margin: 20px;
   padding: 10px;
   text-align: center;
+  border: 5px solid #1C3033;
 }
 
 #icon {

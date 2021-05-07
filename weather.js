@@ -4,16 +4,17 @@ export class Weather {
         this.weather = weatherObject;
     }
 
-    displayWeather() {
+    render(item) {
         const {cityName, description, icon} = this.weather;
         const {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.removedDecimal();
-    
+
+        
         const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
         const newDiv = document.createElement("div");
         newDiv.class = 'weather-card';
         newDiv.innerHTML = 
         `
-        <div class='card'>
+        <div class='card' style='background-color: ${item}'>
             <p class='card-current-temp'>${currentTemp}°</p>
             <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
 
@@ -31,10 +32,24 @@ export class Weather {
     
         const section = document.getElementById('weather-container');
         section.appendChild(newDiv);
-        console.log(this)
-        
+    
+    
         return;
     }
+
+    shuffle(array) {
+        let shuffled = array.sort(() => 0.5 - Math.random());
+        return shuffled.slice(0,array.length)
+    }
+
+    displayWeather() {
+        let randonColor = ['#A29B8B','#84B0B6', '#486371', '#696486', '#156554', '#91AC79'];
+        const item = this.shuffle(randonColor)
+        console.log(item[0])
+        this.render(item[0])
+
+    }
+
 
     removedDecimal() {
         let {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.weather;
