@@ -5,20 +5,18 @@ const APIkey = 'f18b6ae1c57f039f48f95ade89757557';
 
 const form = document.getElementById('form');
 
-let unit = undefined;
+// For the units of measurements i.e Metric or imperial
+let unit = 'metric';
 
 const weatherObject = {};
 
-const colorScheme = [
-    { name: 'crimson'       , rgb: 'rgb(220,20,60)'  , hex: '#DC143C' },
-    { name: 'maroon'        , rgb: 'rgb(128,0,0)'    , hex: '#800000' },
-    { name: 'forestgreen'   , rgb: 'rgb(34,139,34)'  , hex: '#228B22' },
-    { name: 'seagreen'      , rgb: 'rgb(46,139,87)'  , hex: '#2E8B57' },
-    { name: 'skyblue'       , rgb: 'rgb(135,206,235)', hex: '#87CEEB' },
-    { name: 'indigo'        , rgb: 'rgb(75,0,130)'   , hex: '#4B0082' },
-    { name: 'dark'          , rgb: 'rgb(39,39,39)'   , hex: '#272727' }
-];
-
+// Object for regular used dom elements
+const dom = {
+    appName       : document.getElementById('navbar-brand-id'),
+    metricButton  : document.getElementById('metric-button'),
+    imperialButton: document.getElementById('imperial-button'),
+    formButton    : document.getElementById('button'),
+}
 
 //Functions
 
@@ -63,7 +61,9 @@ const apiError = (error) => {
     
     setTimeout(function(){
 
-        document.getElementById('show-alert').remove()
+        let toggle = document.getElementById('show-alert')
+        toggle.id = 'hide-alert';
+        toggle.innerHTML = '';
     }, 
     3000);
 
@@ -150,32 +150,6 @@ const waitForCard = () => {
     //cardElement.style.borderColor = 'green'
 }
 
-const colorUI = (event) => {
-    event.preventDefault();
-
-    if (event.target.matches('#dropdown-item1')) {
-        document.body.style.backgroundColor = colorScheme[0].rgb;
-        //waitForCard().then(cardElement => console.log(cardElement)).catch(error => console.error(error));
-    }
-    if (event.target.matches('#dropdown-item2')) {
-        document.body.style.backgroundColor = colorScheme[1].rgb;
-    }
-    if (event.target.matches('#dropdown-item3')) {
-        document.body.style.backgroundColor = colorScheme[2].rgb;
-    }
-    if (event.target.matches('#dropdown-item4')) {
-        document.body.style.backgroundColor = colorScheme[3].rgb;
-    }
-    if (event.target.matches('#dropdown-item5')) {
-        document.body.style.backgroundColor = colorScheme[4].rgb;
-    }
-    if (event.target.matches('#dropdown-item6')) {
-        document.body.style.backgroundColor = colorScheme[5].rgb;
-    } 
-    if (event.target.matches('#dropdown-item7')) {
-        document.body.style.backgroundColor = colorScheme[6].rgb;
-    } 
-}
 
 // Event Listener
 form.addEventListener('submit', formHandler)
