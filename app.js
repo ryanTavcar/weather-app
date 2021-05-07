@@ -114,6 +114,7 @@ const asssembleData = (data) => {
     weatherObject.minTemp     = main.temp_min;
     weatherObject.feelsLike   = main.feels_like;
     weatherObject.humidity    = main.humidity;
+    weatherObject.icon        = weather[0].icon;
     weatherObject.windspeed   = wind.speed;
     weatherObject.description = weather[0].description;
     weatherObject.icon        = weather[0].icon;
