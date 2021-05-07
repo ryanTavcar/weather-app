@@ -7,13 +7,13 @@ export class Weather {
     displayWeather() {
         const {cityName, description, icon} = this.weather;
         const {currentTemp, maxTemp, minTemp, feelsLike, humidity, windspeed} = this.removedDecimal();
-    
+
         const iconURL = "http://openweathermap.org/img/w/" + icon + ".png";
         const newDiv = document.createElement("div");
         newDiv.class = 'weather-card';
         newDiv.innerHTML = 
         `
-        <div class='card'>
+        <div class='card'　style="background-color: ${color.element}">
             <p class='card-current-temp'>${currentTemp}°</p>
             <p class='card-feels-like'><strong>Feels Like:</strong> ${feelsLike}</p>
 
