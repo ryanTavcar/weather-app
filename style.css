@@ -43,10 +43,14 @@ nav {
   transition: 0.4s;
   background-color: #84b0b6;
 }
+#imperial-button {
+    background-color: #333333;
+    color: white;
+}
 
-#menu-button {
-  background-color: #333333;
-  color: white;
+#metric-button {
+    background-color: #333333;
+    color: white;
 }
 
 .card {
