@@ -2,7 +2,7 @@ import { Weather } from './weather.js';
 
 
 // GLOBAL VARIABLES
-const APIkey = 'f18b6ae1c57f039f48f95ade89757557';
+const APIkey = 'foib34ov28p93y51kjljhbf98yp';
 
 const form = document.getElementById('form');
 
